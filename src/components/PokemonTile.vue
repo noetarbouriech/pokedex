@@ -12,11 +12,13 @@ defineProps({
 </script>
 
 <template>
-    <div class="pokemon-card">
-        <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id + '.png'" alt="Pokemon image">
-        <h2>{{ name }}</h2>
-        <h3>id: {{ id }}</h3>
-    </div>
+    <RouterLink :to="{ name: 'pokemon', params: { id: id }}">
+      <div class="pokemon-card">
+          <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id + '.png'" alt="Pokemon image">
+          <h2>{{ name }}</h2>
+          <h3>#{{ id }}</h3>
+      </div>
+    </RouterLink>
 </template>
 
 <style scoped>

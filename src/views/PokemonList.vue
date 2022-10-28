@@ -3,7 +3,7 @@ import PokemonTile from '../components/PokemonTile.vue';
 import { ref, watchEffect } from 'vue';
 
 const P = new Pokedex.Pokedex({protocol: 'https', cachedImages: true});
-const pokemons = ref(null);
+const pokemons = ref([]);
 const page = ref(0);
 
 watchEffect(async () => {

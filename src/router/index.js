@@ -7,12 +7,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Liste Pokemons',
+      name: 'home',
       component: PokemonList
     },
     {
       path: '/pokemon/:id',
-      name: 'Description Pokemon',
+      name: 'pokemon',
       component: PokemonDetails
     }
   ]
