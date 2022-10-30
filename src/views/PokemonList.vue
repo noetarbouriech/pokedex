@@ -16,7 +16,10 @@ watchEffect(async () => {
 })
 
 function searchPokemons(pkm) {
-  return pkm.filter(data => data.name.toLowerCase().startsWith(search.value.toLowerCase()));
+  return pkm.filter(data => { 
+    return data.name.toLowerCase().startsWith(search.value.toLowerCase())
+    || data.id.toString().startsWith(search.value.toString());
+  });
 }
 </script>
 
