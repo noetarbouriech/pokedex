@@ -1,21 +1,8 @@
-@font-face {
-    font-family: 'PixeloidSans';
-    src: url('pixeloid/pixeloidsans.woff2') format('woff2'),
-        url('pixeloid/pixeloidsans.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'PixeloidSansBold';
-    src: url('pixeloid/pixeloidsansbold.woff2') format('woff2'),
-        url('pixeloid/pixeloidsansbold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
 
 body {
     background: url("gameboy-bg.png") center / cover no-repeat fixed;;
-    font-family: 'PixeloidSans', Verdana, sans-serif;
+    font-family: 'Silkscreen', cursive;
     color: whitesmoke;
 }
 main {
@@ -31,7 +18,8 @@ header {
 }
 header h1 {
     font-size: xx-large;
-    font-family: 'PixeloidSansBold';
+    font-family: 'Silkscreen', cursive;
+    font-weight: 700;
 }
 input {
     border-radius: 20px;
@@ -76,7 +64,8 @@ input {
 }
 .pokemon-card h2 {
     margin: 0;
-    font-family: 'PixeloidSansBold';
+    font-family: 'Silkscreen', cursive;
+    font-size: larger;
 }
 .pokemon-card h3 {
     margin: 0;
@@ -87,6 +76,8 @@ input {
     border-radius: 0px 0px 20px 0px;
     background-color: whitesmoke;
     color: black;
+    font-family: 'Silkscreen', cursive;
+    font-weight: 300;
 }
 
 .nav-btn {
@@ -104,8 +95,15 @@ button {
     border: 0;
     margin: 5px;
     background-color: whitesmoke;
+    font-weight: 800;
+    font-size: larger;
+    font-family: 'Silkscreen', cursive;
 }
 button:hover {
     background: rgb(175, 169, 169);
     cursor: pointer;
+}
+button:disabled {
+    background: rgb(175, 169, 169);
+    cursor: default;
 }
