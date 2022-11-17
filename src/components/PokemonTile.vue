@@ -23,18 +23,42 @@ defineProps({
 
 <style scoped>
 .pokemon-card {
-    background: whitesmoke;
-    box-shadow: 5px 5px 2px grey;
-    border-radius: 5px;
     margin: 20px;
     padding: 10px;
-    border: 1px black;
     width: 200px;
+    height: 200px;
     text-align: center;
+
+    border-radius: 20px;
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(15px);
+
+    overflow: hidden;
 }
 .pokemon-card:hover {
-    background-color: aliceblue;
+    background: rgba(255, 255, 255, 0.2);
     cursor: pointer;
+}
+.pokemon-card img {
+    height: 70%;
+}
+.pokemon-card h2 {
+    margin: 0;
+    font-family: 'Silkscreen', cursive;
+    font-size: larger;
+}
+.pokemon-card h3 {
+    margin: 0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 8px;
+    border-radius: 0px 0px 20px 0px;
+    background-color: whitesmoke;
+    color: black;
+    font-family: 'Silkscreen', cursive;
+    font-weight: 400;
 }
 </style>
 

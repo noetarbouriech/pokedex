@@ -1,1 +1,13 @@
 @import './reset.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+body {
+    background: url("../assets/gameboy-bg.png") center / cover no-repeat fixed;;
+    font-family: 'Silkscreen', cursive;
+    color: whitesmoke;
+}
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}

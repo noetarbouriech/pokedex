@@ -4,13 +4,22 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <img alt="Pokedex logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <h1>Pokedex</h1>
   </header>
   <RouterView />
-  <footer>
-    <p>Noé Tarbouriech - Polytech DO 2022</p>
-  </footer>
 </template>
 
 <style scoped>
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+}
+header h1 {
+    font-size: xx-large;
+    font-family: 'Silkscreen', cursive;
+    font-weight: 700;
+}
 </style>
