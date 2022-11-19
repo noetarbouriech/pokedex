@@ -40,11 +40,6 @@ function searchPokemons(pkm) {
 </template>
 
 <style scoped>
-main {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
 input {
     border-radius: 20px;
     border-style: solid;
