@@ -25,7 +25,7 @@ function searchPokemons(pkm) {
 
 <template>
   <main>
-    <input placeholder="🔍 Search by name or id" type="search" v-model="search">
+    <input placeholder="🔍 Search by name or id" type="search" v-model="search" @keydown="page=0">
     <div class="card-grid">
       <PokemonTile v-for="pokemon in searchPokemons(pokemons).slice(page*50,(page+1)*50)" 
       :name=pokemon.name
@@ -45,7 +45,7 @@ input {
     border-style: solid;
     border: 2px black;
     outline: none;
-    padding: 10px;
+    padding: 8px;
     background-color: whitesmoke;
     min-width: 220px;
     width: 20vw;
