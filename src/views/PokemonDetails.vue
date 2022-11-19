@@ -36,9 +36,7 @@ const getDescription = computed(() =>  {
             <div class="pkm-details">
                 <h1>{{ pokemon.name }}</h1>
                 <button disabled>info</button><button>stats</button><button>evolution</button>
-                <div class="pkm-container">
-                    <PokemonInfo :description="getDescription"></PokemonInfo>
-                </div>
+                <PokemonInfo :types="pokemon.types" :description="getDescription"></PokemonInfo>
             </div>
         </div>
   </main>
@@ -76,12 +74,6 @@ const getDescription = computed(() =>  {
     margin: 10px;
     position: absolute;
     right: 10px;
-}
-
-.pkm-container {
-    padding-left: 10px;
-    border-left: 5px solid whitesmoke;
-    border-radius: 5px;
 }
 
 button {
