@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
-  description: String,
-  types: Array
+  pokemon: Object,
+  species: Object
 })
 const typesTable = {
   normal: {
@@ -83,24 +83,18 @@ const typesTable = {
   <section>
     <h2>Types</h2>
     <ul>
-      <li v-for="slot in types" :style="{'background-color': typesTable[slot.type.name].color}">
+      <li v-for="slot in pokemon.types" :style="{'background-color': typesTable[slot.type.name].color}">
         {{ typesTable[slot.type.name].emoji }} {{ slot.type.name }}
       </li>
     </ul>
   </section>
   <section>
     <h2>Description</h2>
-    <p>{{ description }}</p>
+    <p>{{ species.flavor_text_entries.findLast((desc) => { return desc.language.name === 'en'}).flavor_text }}</p>
   </section>
 </template>
 
 <style scoped>
-section {
-    padding-left: 10px;
-    border-left: 5px solid whitesmoke;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
 ul {
   margin-top: 10px;
   padding-bottom: 10px;

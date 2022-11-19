@@ -16,3 +16,9 @@ a {
     color: whitesmoke;
     text-decoration: none;
 }
+section {
+    padding-left: 10px;
+    border-left: 5px solid whitesmoke;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

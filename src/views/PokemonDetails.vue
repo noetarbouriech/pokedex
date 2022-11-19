@@ -1,13 +1,25 @@
 <script setup>
 import { useRoute } from 'vue-router';
-import { ref, computed, watchEffect } from 'vue';
+import { shallowRef, ref, computed, watchEffect } from 'vue';
 import PokemonInfo from '../components/PokemonInfo.vue';
+import PokemonStats from '../components/PokemonStats.vue';
 
 const route = useRoute();
 const id = route.params.id;
 const P = new Pokedex.Pokedex({protocol: 'https'});
 const pokemon = ref({});
 const species = ref({});
+const tabs = [
+    {
+        name: "info",
+        component: PokemonInfo
+    },
+    {
+        name: "stats",
+        component: PokemonStats
+    }
+];
+const activeTab = shallowRef(PokemonInfo);
 
 watchEffect(async () => {
   const dataPokemon = await P.getPokemonByName(id);
@@ -16,14 +28,6 @@ watchEffect(async () => {
   pokemon.value = dataPokemon;
   species.value = dataSpecies;
 })
-
-const getDescription = computed(() =>  {
-  if (!species.value.flavor_text_entries) { return; }
-  return species.value.flavor_text_entries.findLast((desc) => {
-    return desc.language.name === 'en';
-  }).flavor_text;
-});
-
 </script>
 
 <template>
@@ -35,8 +39,10 @@ const getDescription = computed(() =>  {
             </div>
             <div class="pkm-details">
                 <h1>{{ pokemon.name }}</h1>
-                <button disabled>info</button><button>stats</button><button>evolution</button>
-                <PokemonInfo :types="pokemon.types" :description="getDescription"></PokemonInfo>
+                <button v-for="tab in tabs" :key="tab" @click="activeTab = tab.component" :disabled="tab.component === activeTab" >
+                    {{ tab.name }}
+                </button>
+                <component :is='activeTab' :pokemon="pokemon" :species="species"></component>
             </div>
         </div>
   </main>
@@ -63,7 +69,7 @@ const getDescription = computed(() =>  {
     translate: -40% ;
 }
 .pkm-details {
-    width: 60%;
+    width: fit-content;
     margin: 20px;
 }
 .pkm-details h1 {
@@ -117,7 +123,7 @@ button:disabled {
         width: 80%;
     }
     .pkm-details {
-        width: 80%;
+        width: 100%;
         margin: 10px;
     }
  }
@@ -140,7 +146,7 @@ button:disabled {
         width: 60%;
     }
     .pkm-details {
-        width: 60%;
+        width: 80%;
         margin: 20px;
     }
  }
