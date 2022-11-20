@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <h1>Pokedex</h1>
     </RouterLink>
   </header>
-  <RouterView/>
+  <RouterView :key="$route.path"/>
 </template>
 
 <style scoped>
