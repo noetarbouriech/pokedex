@@ -28,6 +28,7 @@ watchEffect(async () => {
     const dataSpecies = await P.getPokemonSpeciesByName(id);
     pokemon.value = dataPokemon;
     species.value = dataSpecies;
+    document.title = `Pokedex - ${pokemon.value.name}`;
   } catch(error) {
     console.error(error);
     router.push({name: 'NotFound'});

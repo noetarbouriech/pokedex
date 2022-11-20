@@ -7,6 +7,8 @@ const pokemons = ref([]);
 const page = ref(0);
 const search = ref('');
 
+document.title = "Pokedex";
+
 watchEffect(async () => {
   const data = await P.getPokemonSpecies();
   pokemons.value = await data.results.map((pkm, id) => { 
