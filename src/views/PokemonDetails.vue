@@ -3,6 +3,7 @@ import { useRoute } from 'vue-router';
 import { shallowRef, ref, inject, watchEffect } from 'vue';
 import PokemonInfo from '../components/PokemonInfo.vue';
 import PokemonStats from '../components/PokemonStats.vue';
+import router from '../router';
 
 const P = inject('pokedex');
 const route = useRoute();
@@ -22,10 +23,15 @@ const tabs = [
 const activeTab = shallowRef(PokemonInfo);
 
 watchEffect(async () => {
-  const dataPokemon = await P.getPokemonByName(id);
-  const dataSpecies = await P.getPokemonSpeciesByName(id);
-  pokemon.value = dataPokemon;
-  species.value = dataSpecies;
+  try {
+    const dataPokemon = await P.getPokemonByName(id);
+    const dataSpecies = await P.getPokemonSpeciesByName(id);
+    pokemon.value = dataPokemon;
+    species.value = dataSpecies;
+  } catch(error) {
+    console.error(error);
+    router.push({name: 'NotFound'});
+  }
 })
 </script>
 
