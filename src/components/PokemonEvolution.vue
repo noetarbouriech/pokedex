@@ -28,7 +28,7 @@ watchEffect(async () => {
       <h2>Evolutions</h2>
       <ul>
         <PokemonEvolutionNode v-if="evol.chain" :evol="evol.chain"/>
-        <li v-else>{{ props.species.evolves_from_species.name }}</li> <!-- fix for bugged pokemons without evo chain -->
+        <li v-else>{{ props.species.varieties[0].pokemon.name }}</li> <!-- fix for bugged pokemons without evo chain -->
       </ul>
     </section>
   </article>
