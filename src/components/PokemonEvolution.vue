@@ -15,6 +15,7 @@ const props = defineProps({
 const evol = ref({});
 
 watchEffect(async () => {
+  if (props.species.evolution_chain === null) { return; }
   let id = props.species.evolution_chain.url.split("/");
   const dataEvol = await P.getEvolutionChainById(id[id.length-2]);
   evol.value = dataEvol;
@@ -26,7 +27,8 @@ watchEffect(async () => {
     <section>
       <h2>Evolutions</h2>
       <ul>
-        <PokemonEvolutionNode :evol="evol.chain"/>
+        <PokemonEvolutionNode v-if="evol.chain" :evol="evol.chain"/>
+        <li v-else>{{ props.species.evolves_from_species.name }}</li> <!-- fix for bugged pokemons without evo chain -->
       </ul>
     </section>
   </article>
@@ -39,5 +41,9 @@ section {
 ul {
   padding-top: 10px;
   padding-left: 20px;
+}
+li {
+  padding-left: 10px;
+  list-style-type: "þ";
 }
 </style>
