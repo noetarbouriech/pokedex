@@ -39,17 +39,19 @@ watchEffect(async () => {
 <template>
   <main>
     <div class="card">
-      <p class="pkm-id">#{{ id }}</p>
-        <div class="pkm-img">
-          <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/' + id + '.png'" alt="Pokemon image">
-        </div>
-        <div class="pkm-details">
-          <h1>{{ pokemon.name }}</h1>
-          <button v-for="tab in tabs" :key="tab" @click="activeTab = tab.component" :disabled="tab.component === activeTab" >
-            {{ tab.name }}
-          </button>
+      <span class="pkm-id">#{{ id }}</span>
+      <div class="pkm-img">
+        <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/' + id + '.png'" :alt="`${pokemon.name} artwork`">
+      </div>
+      <div class="pkm-details">
+        <h1>{{ pokemon.name }}</h1>
+        <button v-for="tab in tabs" :key="tab" @click="activeTab = tab.component" :disabled="tab.component === activeTab" >
+          {{ tab.name }}
+        </button>
+        <transition name="translate" mode="out-in">
           <component :is='activeTab' :pokemon="pokemon" :species="species"></component>
-        </div>
+        </transition>
+      </div>
     </div>
   </main>
 </template>
@@ -61,6 +63,7 @@ watchEffect(async () => {
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin-bottom: 40px;
 }
 .pkm-img {
   width: 40%;
@@ -95,6 +98,15 @@ button:disabled {
   border-bottom: var(--primary-color) solid 5px;
   border-radius: 5px;
   color: var(--primary-color);
+}
+.translate-enter-active,
+.translate-leave-active {
+transition: all 0.2s ease;
+}
+.translate-enter-from,
+.translate-leave-to {
+opacity: 0;
+transform: translateX(30px);
 }
 
 /* Extra small devices (phones, 768px and down) */

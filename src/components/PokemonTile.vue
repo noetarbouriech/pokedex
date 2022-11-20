@@ -14,7 +14,7 @@ defineProps({
 <template>
   <RouterLink :to="{ name: 'pokemon', params: { id: id }}">
     <div class="card">
-      <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id + '.png'" alt="Pokemon image">
+      <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`" :alt="`${name} sprite`">
       <h2>{{ name }}</h2>
       <span class="pkm-id">#{{ id }}</span>
     </div>

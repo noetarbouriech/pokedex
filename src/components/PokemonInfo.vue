@@ -80,18 +80,20 @@ const typesTable = {
 </script>
 
 <template>
-  <section>
-    <h2>Types</h2>
-    <ul>
-      <li v-for="slot in pokemon.types" :style="{'background-color': typesTable[slot.type.name].color}">
-        {{ typesTable[slot.type.name].emoji }} {{ slot.type.name }}
-      </li>
-    </ul>
-  </section>
-  <section>
-    <h2>Description</h2>
-    <p>{{ species.flavor_text_entries?.findLast((desc) => { return desc.language.name === 'en'}).flavor_text }}</p>
-  </section>
+  <article>
+    <section>
+      <h2>Types</h2>
+      <ul>
+        <li v-for="slot in pokemon.types" :style="{'background-color': typesTable[slot.type.name].color}">
+          {{ typesTable[slot.type.name].emoji }} {{ slot.type.name }}
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Description</h2>
+      <p>{{ species.flavor_text_entries?.findLast((desc) => { return desc.language.name === 'en'}).flavor_text }}</p>
+    </section>
+  </article>
 </template>
 
 <style scoped>
