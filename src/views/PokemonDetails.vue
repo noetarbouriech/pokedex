@@ -3,6 +3,7 @@ import { useRoute } from 'vue-router';
 import { shallowRef, ref, inject, watchEffect } from 'vue';
 import PokemonInfo from '../components/PokemonInfo.vue';
 import PokemonStats from '../components/PokemonStats.vue';
+import PokemonEvolution from '../components/PokemonEvolution.vue';
 import router from '../router';
 
 const P = inject('pokedex');
@@ -18,6 +19,10 @@ const tabs = [
   {
     name: "stats",
     component: PokemonStats
+  },
+  {
+    name: "evol",
+    component: PokemonEvolution
   }
 ];
 const activeTab = shallowRef(PokemonInfo);
