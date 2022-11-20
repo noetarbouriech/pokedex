@@ -83,7 +83,7 @@ const typesTable = {
   <article>
     <section>
       <h2>Types</h2>
-      <ul>
+      <ul class="pkm-type">
         <li v-for="slot in pokemon.types" :style="{'background-color': typesTable[slot.type.name].color}">
           {{ typesTable[slot.type.name].emoji }} {{ slot.type.name }}
         </li>
@@ -93,15 +93,21 @@ const typesTable = {
       <h2>Description</h2>
       <p>{{ species.flavor_text_entries?.findLast((desc) => { return desc.language.name === 'en'}).flavor_text }}</p>
     </section>
+    <section>
+      <h2>Abilities</h2>
+      <ul>
+        <li v-for="ab in pokemon.abilities">{{ ab.ability.name }}</li>
+      </ul>
+    </section>
   </article>
 </template>
 
 <style scoped>
-ul {
+.pkm-type {
   margin-top: 10px;
   padding-bottom: 10px;
 }
-li {
+.pkm-type > li {
   display: inline;
   width: fit-content;
   border-radius: 20px;
