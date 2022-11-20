@@ -4,22 +4,27 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <h1>Pokedex</h1>
+    <RouterLink to="/">
+      <h1>Pokedex</h1>
+    </RouterLink>
   </header>
-  <RouterView />
+  <RouterView/>
 </template>
 
 <style scoped>
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 3vh;
-    margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
 }
-header h1 {
-    font-size: 40px;
-    font-family: 'Silkscreen', cursive;
-    font-weight: 700;
+h1 {
+  font-size: 40px;
+  font-family: 'Silkscreen', cursive;
+  font-weight: 700;
+}
+h1:hover {
+  color: var(--gray);
 }
 </style>
