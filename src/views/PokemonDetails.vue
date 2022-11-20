@@ -41,10 +41,13 @@ watchEffect(async () => {
     <div class="card">
       <span class="pkm-id">#{{ id }}</span>
       <div class="pkm-img">
-        <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/' + id + '.png'" :alt="`${pokemon.name} artwork`">
+        <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`" :alt="`${pokemon.name} artwork`">
       </div>
       <div class="pkm-details">
         <h1>{{ pokemon.name }}</h1>
+        <h2 v-if="species.is_legendary" style="color: #5fc4d5">🌠 Legendary</h2>
+        <h2 v-if="species.is_mythical" style="color: #d97dd9">🦄 Mythical</h2>
+        <h2 v-if="species.is_baby" style="color: #aec659">🍼 Baby</h2>
         <button v-for="tab in tabs" :key="tab" @click="activeTab = tab.component" :disabled="tab.component === activeTab" >
           {{ tab.name }}
         </button>
