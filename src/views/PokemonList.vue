@@ -1,8 +1,8 @@
 <script setup>
 import PokemonTile from '../components/PokemonTile.vue';
-import { ref, watchEffect } from 'vue';
+import { inject, ref, watchEffect } from 'vue';
 
-const P = new Pokedex.Pokedex({protocol: 'https', cachedImages: true});
+const P = inject('pokedex');
 const pokemons = ref([]);
 const page = ref(0);
 const search = ref('');
@@ -41,52 +41,48 @@ function searchPokemons(pkm) {
 
 <style scoped>
 input {
-    border-radius: 20px;
-    border-style: solid;
-    border: 2px black;
-    outline: none;
-    padding: 8px;
-    background-color: whitesmoke;
-    min-width: 220px;
-    width: 20vw;
-    font-family: 'Silkscreen', cursive;
-    font-weight: 400;
+  border-radius: 20px;
+  border: none;
+  padding: 8px;
+  background-color: var(--primary-color);
+  min-width: 220px;
+  width: 20vw;
+  font-family: 'Silkscreen', cursive;
+  font-weight: 400;
 }
 
 .card-grid {
-    margin-top: 20px;
-    max-width: calc(260px * 5);
-    min-width: 220px;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+  margin-top: 20px;
+  max-width: calc(260px * 5);
+  min-width: 220px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .nav-btn {
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    bottom: 2vh;
+  position: fixed;
+  bottom: 2vh;
 }
 button {
-    width: 50px;
-    height: 50px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 30px;
-    border: 0;
-    margin: 5px;
-    background-color: whitesmoke;
-    font-weight: 700;
-    font-size: larger;
-    font-family: 'Silkscreen', cursive;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 2rem;
+  border: 0;
+  margin: 5px;
+  background-color: var(--primary-color);
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Silkscreen', cursive;
 }
 button:hover {
-    background: rgb(175, 169, 169);
-    cursor: pointer;
+  background: var(--gray);
+  cursor: pointer;
 }
 button:disabled {
-    background: rgb(175, 169, 169);
-    cursor: default;
+  background: var(--gray);
+  cursor: default;
 }
 </style>

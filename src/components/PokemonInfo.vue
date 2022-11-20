@@ -90,7 +90,7 @@ const typesTable = {
   </section>
   <section>
     <h2>Description</h2>
-    <p>{{ species.flavor_text_entries.findLast((desc) => { return desc.language.name === 'en'}).flavor_text }}</p>
+    <p>{{ species.flavor_text_entries?.findLast((desc) => { return desc.language.name === 'en'}).flavor_text }}</p>
   </section>
 </template>
 
@@ -105,6 +105,7 @@ li {
   border-radius: 20px;
   margin-right: 5px;
   padding: 5px;
-  color: black;
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 4px var(--gray);
 }
 </style>

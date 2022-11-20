@@ -18,7 +18,7 @@ header {
     margin-top: 3vh;
 }
 header h1 {
-    font-size: xx-large;
+    font-size: 40px;
     font-family: 'Silkscreen', cursive;
     font-weight: 700;
 }

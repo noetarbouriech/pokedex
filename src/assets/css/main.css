@@ -1,0 +1,47 @@
+@import './reset.css';
+@import './colors.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+body {
+    background: url("../img/gameboy-bg.png") center / cover no-repeat fixed;;
+    font-family: 'Silkscreen', cursive;
+    color: var(--primary-color);
+}
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+section {
+    padding-left: 10px;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+section h2 {
+    font-size: 24px;
+}
+.card {
+    border-radius: 20px;
+    background: var(--bg-color);
+    box-shadow: var(--bg-shadow);
+    backdrop-filter: blur(15px);
+}
+.pkm-id {
+    margin: 0;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 8px;
+    border-radius: 0 20px 0 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: 400;
+    font-size: 18px
+}
